@@ -1,0 +1,16 @@
+#公共配置文件，配置eureak的环境无关信息，和具体环境相关的配置写在对应的文件中方便维护
+spring:
+  application:
+    name: eureka-server
+  profiles:
+    active: dev
+#  main:
+#    allow-bean-definition-overriding: true
+eureka:
+  client:
+    register-with-eureka: false  #是否向注册中心注册自己
+    fetch-registry: false  #表示是否从Eureka Server获取注册信息，默认为true
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+      #    registry-fetch-interval-seconds: 30  # 从eureka服务器注册表中获取注册信息的时间间隔（s），默认为30秒
+

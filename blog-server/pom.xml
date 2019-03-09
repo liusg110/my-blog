@@ -6,19 +6,24 @@
         <groupId>com.xy</groupId>
         <artifactId>my-blog</artifactId>
         <version>0.0.1-SNAPSHOT</version>
-       <!-- <relativePath/> --><!-- lookup parent from repository -->
     </parent>
-
     <groupId>com.xy</groupId>
-    <artifactId>eureka-server</artifactId>
+    <artifactId>blog</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>jar</packaging>
-    <name>eureka-server</name>
+    <name>blog</name>
+    <description>Demo project for Spring Boot</description>
+
+    <properties>
+        <java.version>1.8</java.version>
+    </properties>
 
     <dependencies>
-
-        <!--增加eureka-server的依赖-->
-        <!--注意这个包和spring-cloud-netflix-eureka-server的区别,具体的区官网的demo中获取-->
+        <!--在F.sr2版本的springCloud中，服务的返现eureka的包不在使用下面的包-->
+<!--        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-netflix-eureka-client</artifactId>
+        </dependency>-->
+        <!--在F.sr2版本的springCloud中，服务的返现eureka的需要引入下边的包，测试完成-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
@@ -26,12 +31,7 @@
 
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-config</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
+            <artifactId>spring-cloud-commons</artifactId>
         </dependency>
     </dependencies>
 
@@ -43,13 +43,5 @@
             </plugin>
         </plugins>
     </build>
-
-    <repositories>
-        <repository>
-            <id>spring-milestones</id>
-            <name>Spring Milestones</name>
-            <url>https://repo.spring.io/milestone</url>
-        </repository>
-    </repositories>
 
 </project>
