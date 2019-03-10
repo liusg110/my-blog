@@ -20,10 +20,10 @@
         </dependency>
         <!--在gateway中用spring-boot-starter-webflux替代spring-boot-starter-web-->
 
-        <dependency>
+<!--        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-webflux</artifactId>
-        </dependency>
+        </dependency>-->
         <!--基于Finchley.SR2版本的springCloud，服务的发现eureka的需要引入下边的包-->
         <!--必须用netflix-eureka-client代替netflix-eureka-server，【自】因为server中默认包括spring-boot-starter-web，会产生冲突-->
         <dependency>
