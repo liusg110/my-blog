@@ -18,20 +18,21 @@
     </properties>
 
     <dependencies>
-        <!--在F.sr2版本的springCloud中，服务的返现eureka的包不在使用下面的包-->
-<!--        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-netflix-eureka-client</artifactId>
-        </dependency>-->
-        <!--在F.sr2版本的springCloud中，服务的返现eureka的需要引入下边的包，测试完成-->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
-        </dependency>
+        <!--基于Finchley.SR2版本的springCloud，服务的发现eureka的需要引入下边的包-->
+        <!--        <dependency>
+                    <groupId>org.springframework.cloud</groupId>
+                    <artifactId>spring-cloud-netflix-eureka-client</artifactId>
+                </dependency>-->
+        <!--基于Finchley.SR2版本的springCloud，服务的发现eureka的需要引入下边的包-->
 
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-commons</artifactId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
+        <!--web启动依赖，如果不加下面的依赖， 则会出现该服务启动异常停止，也可以将上边的client依赖缓存server依赖，它本身包含web启动依赖-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
     </dependencies>
 
