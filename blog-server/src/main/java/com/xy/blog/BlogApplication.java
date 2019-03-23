@@ -2,10 +2,12 @@ package com.xy.blog;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 @SpringBootApplication
 @EnableEurekaClient
+@ServletComponentScan(basePackages = {"com.xy.blog.common"})
 public class BlogApplication {
 
     public static void main(String[] args) {

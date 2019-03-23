@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: foo
+#  cloud:
+#    config:
+server:
+  port: 8999
+#      uri: ${SPRING_CONFIG_URI:http://localhost:8888}
