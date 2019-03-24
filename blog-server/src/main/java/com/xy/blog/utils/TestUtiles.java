@@ -19,7 +19,7 @@ import javax.servlet.ServletContextListener;
  * @Description: springBoot启动时或启动后自动执行的方法
  */
 @Component
-//@Order(value = 1)
+@Order(value = 1)
 public class TestUtiles  implements CommandLineRunner,ApplicationRunner,ServletContextListener,ApplicationContextAware {
     //,ApplicationContextAware
     //implements  ServletContextListener,ApplicationContextAware
