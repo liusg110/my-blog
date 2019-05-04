@@ -6,6 +6,7 @@ import com.xy.blog.doman.Test;
 import com.xy.blog.doman.Test1;
 import com.xy.blog.service.TestService;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -32,6 +33,7 @@ public class TestServiceImpl implements TestService {
     }
 
     @Override
+    @Transactional
     public int insertAll(List<Test1> list) {
          return mapper1.insertBatch(list);
 

@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -30,9 +31,10 @@ public class TestController {
     private TestService testService;
 
     @RequestMapping(value = "/do")
+    @Transactional
     public List<Test> getAllDates(){
         List<Test> tests = testService.selectAll();
-        List<List<Test>> lists = averageAssign(tests, 200);
+        List<List<Test>> lists = averageAssign(tests, 100);
         for(List<Test> list:lists){
             List<Test1> collect = list.stream().map(i -> new Test1(i.getId(), i.getName(), i.getUpdate1(), i.getUpdateTime())).collect(Collectors.toList());
             testService.insertAll(collect);
