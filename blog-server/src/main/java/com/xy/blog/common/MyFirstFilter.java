@@ -4,6 +4,8 @@ import com.xy.blog.common.Exception.AuthException;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
@@ -23,16 +25,19 @@ public class MyFirstFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+        HttpServletRequest req = (HttpServletRequest) request;
+        HttpServletResponse res = (HttpServletResponse) response;
         String userid="liushoguang";
 //        String userid=null;
         /*用Threadlocal的方式保存用户的关键信息，对实时性要求高的数据保存适用*/
         ContractUser.setUserId(userid);
-        /*if(null==userid){
+        if(null==userid){
             //throw new RuntimeException("用户状态错误");
             throw new AuthException("500","用户状态错误");
 
-        }*/
-        chain.doFilter(request,response);
+        }
+        req.setAttribute("111",userid);
+        chain.doFilter(req,res);
     }
 
     @Override

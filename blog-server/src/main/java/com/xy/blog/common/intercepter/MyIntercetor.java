@@ -26,8 +26,11 @@ public class MyIntercetor implements HandlerInterceptor {
                              HttpServletResponse response, Object handler) throws Exception {
         System.out.println("preHandle start...");
         String userId = ContractUser.getUserId();
-        if("liushoguang".equals(userId))
-            throw  new AuthException("300","用户未登陆");
+        request.setAttribute("userId",userId);
+        if("liushoguang".equals(userId)){
+
+        }
+            //throw  new AuthException("300","用户未登陆");
             return true;
     }
 
