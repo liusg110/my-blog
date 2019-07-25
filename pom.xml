@@ -7,8 +7,8 @@
         <artifactId>spring-boot-starter-parent</artifactId>
         <!--F版本的springCloud适配2.0.X版本的springBoot,此处用2.0.6-->
         <!--如果想用2.1.X版本的springboot则最好使用G版本的springCloud-->
-            <version>2.1.0.RELEASE</version>
-        <!-- <version>2.0.6.RELEASE</version>-->
+            <version>2.1.3.RELEASE</version>
+         <!--<version>2.0.6.RELEASE</version>-->
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.xy</groupId>
@@ -22,6 +22,7 @@
         <module>eureka-server</module>
         <module>blog-server</module>
         <module>gateway-server</module>
+        <module>config-server</module>
     </modules>
 
     <properties>
@@ -32,25 +33,24 @@
     </properties>
 
     <dependencies>
-<!--        <dependency>
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>-->
-
-        <!-- fastjson-->
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>fastjson</artifactId>
-            <version>${fastjson.version}</version>
-        </dependency>
+        <!--
+                <dependency>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-web</artifactId>
+                </dependency>-->
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
             <version>3.5</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context-support</artifactId>
         </dependency>
 
         <!--      <dependency>
@@ -78,7 +78,7 @@
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <!--<version>Finchley.SR2</version>-->
+               <!-- <version>Finchley.SR2</version>-->
                 <version>Greenwich.RELEASE</version>
                 <type>pom</type>
                 <scope>import</scope>

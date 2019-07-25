@@ -1,0 +1,37 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: config-server-jdbc
+  profiles:
+    active: jdbc
+  cloud:
+    config:
+      server:
+        default-label: master
+        jdbc:
+          sql: select conf_key,conf_value from config_info where group_id=? and artifact_id=? and profile=?
+  # mysql  Ù–‘≈‰÷√
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/myblog?zeroDateTimeBehavior=convertToNull&useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT%2B8
+    username: root
+    password: etoak
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+    database-platform: org.hibernate.dialect.MySQLDialect
+  #thymeleaf start
+#  thymeleaf:
+#    mode: HTML5
+#    encoding: utf-8
+#    cache: false
+#    prefix: classpath:/templates/
+#    suffix: .html
+#    #thymeleaf end
+#    servlet:
+#      content-type: text/html
+
+
